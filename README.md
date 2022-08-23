@@ -2,6 +2,7 @@
 * I set up the plugins and the module rules.
 * I also implemented asset caching.
 * I added logic to the database.js for it to store and grab data
+* Install button still doesnt work
 
 
 

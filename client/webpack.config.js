@@ -8,28 +8,6 @@ const { InjectManifest } = require('workbox-webpack-plugin');
 
 module.exports = () => {
   return {
-    mode: 'development',
-    entry: {
-      main: './src/js/index.js',
-      install: './src/js/install.js'
-    },
-    output: {
-      filename: '[name].bundle.js',
-      path: path.resolve(__dirname, 'dist'),
-    },
-    module: {
-      rules: [
-        {test: /\.css$/,use: ['style-loader', 'css-loader']},
-        {test: /\.m?js$/,
-          exclude: /node_modules/,
-          use: {
-            loader: "babel-loader",
-            options: {
-              presets: ["@babel/preset-env"],
-              plugins: [
-                "@babel/plugin-proposal-object-rest-spread",
-                "@babel/transform-runtime"]}},
-        }],
       plugins: [
         // new wpa plugins
         new HtmlWebpackPlugin({
@@ -57,6 +35,28 @@ module.exports = () => {
             destination: path.join("assets", "icons")}]
         }),
       ],
+      mode: 'development',
+      entry: {
+        main: './src/js/index.js',
+        install: './src/js/install.js'
+      },
+      output: {
+        filename: '[name].bundle.js',
+        path: path.resolve(__dirname, 'dist'),
+      },
+      module: {
+        rules: [
+          {test: /\.css$/,use: ['style-loader', 'css-loader']},
+          {test: /\.m?js$/,
+            exclude: /node_modules/,
+            use: {
+              loader: "babel-loader",
+              options: {
+                presets: ["@babel/preset-env"],
+                plugins: [
+                  "@babel/plugin-proposal-object-rest-spread",
+                  "@babel/transform-runtime"]}},
+          }]
     },
   };
 };
