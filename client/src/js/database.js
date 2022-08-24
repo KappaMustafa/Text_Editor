@@ -22,7 +22,7 @@ export const putDb = async (content) =>
   const req = objStore.put({ jate: content });
   const res = await req;
   console.log("stored", res);
-} catch (error) {console.error('putDb not implemented')}
+} catch (error) {console.error('putDb not stored')}
 }
 
 // TODO: Add logic for a method that gets all the content from the database
@@ -35,7 +35,7 @@ export const getDb = async () =>
     const req = objStore.getAll();
     const res = await req;
     console.log("stored", res);
-  } catch (error) {console.error('getDb not implemented')}
+  } catch (error) {console.error('getDb not gotten!')}
   };
 
 initdb();
